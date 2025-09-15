@@ -11,12 +11,11 @@ body {
     font-family: 'Caveat', cursive;
 }
 
-.name{
+.name {
     font-size: 0px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
 }
 
 .introduction {
@@ -24,6 +23,29 @@ body {
     margin-bottom: 20px;
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.name_and_introContainer {
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nameContainer {
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introContainer {
+    width: 100%;
+    height: 100%;
 }
 
 canvas {
@@ -37,18 +59,16 @@ canvas {
 
 .introductionSection {
     text-align: center;
-    padding-top: 100px;
     color: rgb(255, 255, 255);
     height: 100vh;
     background-color: rgb(255, 237, 176);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .cta-button {
-    margin-top: 20px;
     padding: 10px 20px;
     font-size: 18px;
     background-color: lightblue;
