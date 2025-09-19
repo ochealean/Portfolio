@@ -1,0 +1,120 @@
+{
+    "flags": {
+        "blendMode": "off",
+        "cullMode": "off",
+        "enableDepthTest": true,
+        "writeAlpha": true,
+        "writeColor": true,
+        "writeDepth": true
+    },
+    "shader": "__dprs_int_f18caee1_d65d_4319_957b_2f6556abda06__/pbr_gltf_new_shader_2.dprx",
+    "uniformValues": {
+        "s_envMapCubeUv": {
+            "texture": "__dprs_int_f18caee1_d65d_4319_957b_2f6556abda06__/sample_environment_map_2.png",
+            "type": "texture"
+        },
+        "u_alphaTest": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.5
+        },
+        "u_ambientLightColor": {
+            "color": [
+                0.9643835425376892,
+                0.16117091476917267,
+                0.16117091476917267
+            ],
+            "dataType": "color",
+            "type": "vector"
+        },
+        "u_ambientLightIntensity": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.0
+        },
+        "u_attenuationColor": {
+            "color": [
+                0.0,
+                1.0,
+                0.02191781997680664
+            ],
+            "dataType": "color",
+            "type": "vector"
+        },
+        "u_attenuationDistance": {
+            "data": [
+                -1.0
+            ],
+            "dataType": "numeric",
+            "type": "vector"
+        },
+        "u_diffuse": {
+            "color": [
+                1.0,
+                0.9369862675666809,
+                0.0
+            ],
+            "dataType": "color",
+            "type": "vector"
+        },
+        "u_emissive": {
+            "color": [
+                1.0,
+                0.5917806029319763,
+                0.0
+            ],
+            "dataType": "color",
+            "type": "vector"
+        },
+        "u_envMapIntensity": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 1.0
+        },
+        "u_ior": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 1.5
+        },
+        "u_metalness": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.03968299925327301
+        },
+        "u_opacity": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.0
+        },
+        "u_roughness": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.8211150169372559
+        },
+        "u_specularColor": {
+            "color": [
+                0.0,
+                0.432889461517334,
+                1.0
+            ],
+            "dataType": "color",
+            "type": "vector"
+        },
+        "u_specularIntensity": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.699999988079071
+        },
+        "u_thickness": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 0.0
+        },
+        "u_transmission": {
+            "dataType": "slider",
+            "type": "vector",
+            "value": 1.0
+        }
+    },
+    "uvTransformUniformValues": {}
+}

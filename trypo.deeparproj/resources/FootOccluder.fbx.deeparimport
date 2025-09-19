@@ -1,0 +1,18 @@
+{
+    "convertScale": false,
+    "dataType": "model",
+    "generateSmoothNormals": true,
+    "importAnimations": true,
+    "limitBoneWeights": true,
+    "materialModelRefs": {
+        "lambert1": [
+            "lambert1.mat"
+        ]
+    },
+    "meshModelRefs": {
+        "foot_mesh": [
+            "foot_mesh.armesh"
+        ]
+    },
+    "type": "scene"
+}

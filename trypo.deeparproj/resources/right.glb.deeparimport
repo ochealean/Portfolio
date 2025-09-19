@@ -1,0 +1,24 @@
+{
+    "convertScale": false,
+    "dataType": "model",
+    "generateSmoothNormals": true,
+    "importAnimations": true,
+    "limitBoneWeights": true,
+    "materialModelRefs": {
+        "wire_000000000": [
+            "wire_2.mat"
+        ],
+        "wire_227153153": [
+            "wire.mat"
+        ]
+    },
+    "meshModelRefs": {
+        "shoe-0": [
+            "shoe-0.armesh"
+        ],
+        "shoe-1": [
+            "shoe-1.armesh"
+        ]
+    },
+    "type": "scene"
+}
