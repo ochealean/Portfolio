@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +9,9 @@
   <link href="animations.css" type="text/css" rel="stylesheet">
   <link href="content.css" type="text/css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/npm/deepar/js/deepar.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/deepar/js/deepar.js'></script>
 </head>
+
 <body>
   <!-- Your background / wave canvases -->
   <canvas class="waveCanvas1" id="waveCanvas1"></canvas>
@@ -30,29 +31,25 @@
     <button class="cta-button">Get Started</button>
   </div>
 
-  <!-- DeepAR canvas -->
-  <div class="content">
-    <canvas id="deepar-canvas" width="640" height="480"></canvas>
-  </div>
-
-  <!-- DeepAR init script -->
+  <!-- Div element where AR preview will be inserted -->
+  <div style='width: 640px; height: 360px' id='deepar-div'></div>
+  <!-- Initialize DeepAR and load AR effect/filter -->
   <script>
-    (async function () {
+    (async function() {
       const deepAR = await deepar.initialize({
         licenseKey: '2a291134917d2f127714860686e482ea1f9ea02eccd675857d0c50a8459b4355ffb621d4cee7e603',
-        canvas: document.getElementById('deepar-canvas'),
-        effect: 'https://ochea-lean-portfolio.vercel.app/trypo.deeparproj.zip',
+        previewElement: document.querySelector('#deepar-div'),
+        effect: 'https://cdn.jsdelivr.net/npm/deepar/effects/aviators',
         additionalOptions: {
           cameraConfig: {
             facingMode: 'environment'  // back camera
           }
         }
       });
-    })().catch(err => {
-      console.error("Error initializing DeepAR:", err);
-    });
+    })();
   </script>
 
   <script src="wave.js" type="module"></script>
 </body>
+
 </html>
