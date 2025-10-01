@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,32 @@
     <link rel="stylesheet" href="content.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
+
+    <div id="loading-screen">
+        <div class="starter-animation">
+            <div class="binary-background" id="binaryBackground"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="particles" id="particlesContainer"></div>
+            <div class="scan-line"></div>
+            
+            <div class="name-container">
+                <div class="letter">L</div>
+                <div class="letter">E</div>
+                <div class="letter">A</div>
+                <div class="letter">N</div>
+                <div class="glow-effect"></div>
+            </div>
+            
+            <div class="loader"></div>
+        </div>
+    </div>
+
     <!-- Circuit Background -->
     <div class="circuit-bg"></div>
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -41,27 +64,29 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="binary-animation" id="binaryCanvas"></div>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content fade-in">
-                    <h1>Hello, I'm <span>Lean</span></h1>
+                    <h1>Hello, I'm <span>Leander Ochea</span></h1>
                     <h2 class="mb-4">Cyber Security Specialist & Full Stack Developer</h2>
-                    <p class="lead mb-4">I build secure digital solutions and protect systems from cyber threats. Passionate about technology, coding, and digital defense.</p>
+                    <p class="lead mb-4">I build secure digital solutions and protect systems from cyber threats.
+                        Passionate about technology, coding, and digital defense.</p>
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="position-relative">
-                        <div class="binary-animation" id="binaryCanvas"></div>
-                        <img src="/images/me.jpg" alt="Profile" class="img-fluid rounded-circle border border-3 border-accent">
+                        <img src="/images/me.jpg" alt="Profile" class="img-fluid rounded-circle border border-3"
+                            style="border-color: #00bfff !important;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container">
@@ -75,9 +100,16 @@
                             <h3><i class="fas fa-user me-2"></i>Background</h3>
                         </div>
                         <div class="card-body">
-                            <p>With over 5 years of experience in cybersecurity and full-stack development, I specialize in creating secure, efficient, and scalable digital solutions.</p>
-                            <p>My journey began with a fascination for how computers work, which evolved into a passion for protecting digital infrastructure and creating innovative software.</p>
-                            <p>When I'm not coding or securing systems, I contribute to open-source projects and write about cybersecurity trends.</p>
+                            <p>I'm a BS Information Technology student at Bataan Peninsula State University, majoring in
+                                Network and Web Application. My journey into tech began with a fascination for how
+                                websites, databases, and applications work beneath the surface. That curiosity quickly
+                                evolved into a passion for building secure, responsive, and user-focused digital
+                                experiences.</p>
+                            <p>I specialize in full-stack development, working with tools like Node.js, Firebase, and
+                                React, and I'm currently exploring AR integration using DeepAR and AI-enhanced
+                                interfaces. Whether it's deploying real-time chatbots, optimizing backend performance,
+                                or crafting immersive web layouts, I approach every challenge with persistence,
+                                creativity, and a drive to learn more.</p>
                         </div>
                     </div>
                 </div>
@@ -88,11 +120,40 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-certificate text-accent me-2"></i> Certified Ethical Hacker (CEH)</li>
-                                <li class="mb-2"><i class="fas fa-certificate text-accent me-2"></i> CompTIA Security+</li>
-                                <li class="mb-2"><i class="fas fa-certificate text-accent me-2"></i> AWS Certified Security - Specialty</li>
-                                <li class="mb-2"><i class="fas fa-certificate text-accent me-2"></i> CISSP - Certified Information Systems Security Professional</li>
-                                <li class="mb-2"><i class="fas fa-certificate text-accent me-2"></i> Microsoft Certified: Azure Security Engineer Associate</li>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/33fc7d4b-c1a6-40cd-8a7a-686ac2dca741">
+                                    <li class="cert-li"><img src="/images/cyber-threat-management.png" class="icon">
+                                        &nbsp; &nbsp;Cyber Threat Management</li>
+                                </a>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/a7ada154-0df0-47b2-8253-6866d13ae2ad">
+                                    <li class="cert-li"><img
+                                            src="/images/ic3-digital-literacy-certification-gs6-level-1.png"
+                                            class="icon"> &nbsp; &nbsp;IC3 Digital Literacy Certification GS6 Level 1
+                                    </li>
+                                </a>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/9fef12f4-32b2-434b-bb92-894eeea57a77">
+                                    <li class="cert-li"><img src="/images/it-specialist-cybersecurity.png" class="icon">
+                                        &nbsp; &nbsp;IT Specialist - Cybersecurity</li>
+                                </a>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/6cbb7f78-1cfd-4e07-be09-e0181849bab9">
+                                    <li class="cert-li"><img
+                                            src="/images/it-specialist-device-configuration-and-management.png"
+                                            class="icon"> &nbsp; &nbsp;IT Specialist - Device Configuration and
+                                        Management</li>
+                                </a>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/b2125c48-f5fb-4c17-b718-10674af95bc6">
+                                    <li class="cert-li"><img src="/images/it-specialist-network-security.png"
+                                            class="icon"> &nbsp; &nbsp;IT Specialist - Network Security</li>
+                                </a>
+                                <a
+                                    href="https://www.credly.com/earner/earned/badge/ba791f74-7adc-48f7-a4b1-8f5c89c96ee0">
+                                    <li class="cert-li"><img src="/images/pmi-project-management-ready.png"
+                                            class="icon"> &nbsp; &nbsp;PMI Project Management Ready™</li>
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -100,7 +161,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-secondary">
         <div class="container">
@@ -108,7 +169,7 @@
                 <h2>Technical Skills</h2>
             </div>
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <!-- <div class="col-lg-6 mb-4">
                     <div class="card fade-in">
                         <div class="card-header">
                             <h3><i class="fas fa-shield-alt me-2"></i>Cybersecurity</h3>
@@ -152,7 +213,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-6 mb-4">
                     <div class="card fade-in">
                         <div class="card-header">
@@ -161,16 +222,7 @@
                         <div class="card-body">
                             <div class="skill-item">
                                 <div class="skill-name">
-                                    <span>JavaScript/Node.js</span>
-                                    <span>94%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="94"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name">
-                                    <span>Python</span>
+                                    <span>CSS</span>
                                     <span>90%</span>
                                 </div>
                                 <div class="skill-bar">
@@ -179,20 +231,29 @@
                             </div>
                             <div class="skill-item">
                                 <div class="skill-name">
-                                    <span>React/Vue.js</span>
-                                    <span>85%</span>
+                                    <span>JavaScript/Node.js</span>
+                                    <span>77%</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
+                                    <div class="skill-progress" data-width="77"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-name">
                                     <span>Database Management</span>
-                                    <span>88%</span>
+                                    <span>60%</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-width="88"></div>
+                                    <div class="skill-progress" data-width="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>React/Vue.js</span>
+                                    <span>5%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="5"></div>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +262,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container">
@@ -212,15 +273,15 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card fade-in">
                         <div class="card-header">
-                            <h3>SecureChat App</h3>
+                            <h3>Smartfit AR (Innovator Crews)</h3><a href="smart-fit-ar.vercel.app">view here</a>
                         </div>
                         <div class="card-body">
-                            <p>End-to-end encrypted messaging application with military-grade security protocols.</p>
+                            <p>Shop portal web app with Augmented Reality and Artificial Intelligent features</p>
                             <div class="tech-tags">
                                 <span class="badge bg-dark me-1">Node.js</span>
-                                <span class="badge bg-dark me-1">React</span>
-                                <span class="badge bg-dark me-1">WebSockets</span>
-                                <span class="badge bg-dark">AES-256</span>
+                                <span class="badge bg-dark me-1">JavaScript</span>
+                                <span class="badge bg-dark me-1">CSS/Bootstrap</span>
+                                <span class="badge bg-dark">Firebase</span>
                             </div>
                         </div>
                     </div>
@@ -228,20 +289,19 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card fade-in">
                         <div class="card-header">
-                            <h3>Network Monitor</h3>
+                            <h3>Notepad</h3>
                         </div>
                         <div class="card-body">
-                            <p>Real-time network traffic analysis tool with intrusion detection capabilities.</p>
+                            <p>Simple notepad with MongoDB</p>
                             <div class="tech-tags">
-                                <span class="badge bg-dark me-1">Python</span>
-                                <span class="badge bg-dark me-1">Snort</span>
-                                <span class="badge bg-dark me-1">Elasticsearch</span>
-                                <span class="badge bg-dark">Kibana</span>
+                                <span class="badge bg-dark me-1">CSS</span>
+                                <span class="badge bg-dark me-1">Node.js</span>
+                                <span class="badge bg-dark me-1">MongoDB</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card fade-in">
                         <div class="card-header">
                             <h3>Vulnerability Scanner</h3>
@@ -256,11 +316,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-secondary">
         <div class="container">
@@ -287,7 +347,8 @@
                                     <input type="text" class="form-control" placeholder="Subject" required>
                                 </div>
                                 <div class="mb-3">
-                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                    <textarea class="form-control" rows="5" placeholder="Your Message"
+                                        required></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Send Message</button>
@@ -299,22 +360,23 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
             <div class="social-links mb-3">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-medium-m"></i></a>
+                <a href="https://github.com/ochealean"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ochea-leander/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
             <p>&copy; 2023 CyberDev Portfolio. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
