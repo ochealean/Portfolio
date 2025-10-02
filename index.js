@@ -230,9 +230,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
         e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
+
+        const name = e.target[0].value;
+        const email = e.target[1].value;
+        const subject = e.target[2].value;
+        const message = e.target[3].value;
+
+        const loader = document.getElementById("loader");
+        const btn = document.getElementById("submitBtn");
+
+        loader.style.display = "block";
+        btn.disabled = true;
+
+        try {
+            const res = await fetch("https://ochea-lean-portfolio-backend.onrender.com/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, subject, message }),
+            });
+
+            const data = await res.json();
+            alert(data.message);
+        } catch (err) {
+            alert("Failed to send email. Please try again later.");
+            console.error(err);
+        } finally {
+            loader.style.display = "none";
+            btn.disabled = false;
+        }
+
+        // reset the form
+        e.target.reset();
     });
 });

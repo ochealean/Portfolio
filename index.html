@@ -75,7 +75,9 @@
                     <h2 class="mb-4">Full Stack Developer</h2>
                     <p class="lead mb-4">I build secure digital solutions and protect systems from cyber threats.
                         Passionate about technology, coding, and digital defense.</p>
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <div class="btn-container">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                    </div>
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="position-relative">
@@ -351,7 +353,15 @@
                                         required></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                    <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
+
+                                    <!-- Loader -->
+                                    <div id="loader" style="display:none; margin-top:15px;">
+                                        <div class="spinner-border text-light" role="status">
+                                            <span class="visually-hidden">Sending...</span>
+                                        </div>
+                                        <p class="mt-2 text-white">Warming up server, please wait...</p>
+                                    </div>
                                 </div>
                             </form>
                         </div>
