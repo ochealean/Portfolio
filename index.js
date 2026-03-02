@@ -1,9 +1,10 @@
 const loadingscreen_duration = 3000;
 
-
-// Binary animation
+// Binary animation (binaryCanvas) - KEPT AS-IS
 function createBinaryAnimation() {
     const container = document.getElementById('binaryCanvas');
+    if (!container) return;
+
     const binaryChars = '01';
     const columns = Math.floor(window.innerWidth / 20);
 
@@ -20,10 +21,7 @@ function createBinaryAnimation() {
         column.style.fontFamily = 'monospace';
         column.style.lineHeight = '20px';
 
-        // Create binary characters
         let binaryString = '';
-
-        // Animation
         let position = -100;
         const speed = 1 + Math.random() * 2;
 
@@ -31,7 +29,6 @@ function createBinaryAnimation() {
             position += speed;
             if (position > window.innerHeight) {
                 position = -600;
-                // Regenerate binary string
                 binaryString = '';
                 for (let j = 0; j < 30; j++) {
                     binaryString += `\n${binaryChars.charAt(Math.floor(Math.random() * binaryChars.length))}`;
@@ -57,14 +54,15 @@ function animateSkillBars() {
 }
 
 // Check if element is in viewport
-function isInViewport(element) {
+function isInViewport(element, threshold = 0.2) {
+    // threshold defines how much of the element should be visible (0 = any part, 1 = fully)
+    if (!element) return false;
     const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const vw = window.innerWidth || document.documentElement.clientWidth;
+    const vertInView = rect.top <= vh * (1 - threshold) && rect.bottom >= vh * threshold;
+    const horInView = rect.left <= vw && rect.right >= 0;
+    return vertInView && horInView;
 }
 
 // Handle scroll animations
@@ -76,9 +74,8 @@ function handleScrollAnimations() {
         }
     });
 
-    // Animate skill bars when skills section is in view
     const skillsSection = document.getElementById('skills');
-    if (isInViewport(skillsSection)) {
+    if (skillsSection && isInViewport(skillsSection, 0.4)) {
         animateSkillBars();
     }
 }
@@ -86,6 +83,8 @@ function handleScrollAnimations() {
 // Create binary background for loading screen
 function createBinaryBackground() {
     const container = document.getElementById('binaryBackground');
+    if (!container) return;
+
     const binaryChars = '01';
     const digitCount = 150;
 
@@ -95,9 +94,7 @@ function createBinaryBackground() {
         digit.textContent = binaryChars.charAt(Math.floor(Math.random() * binaryChars.length));
         digit.style.left = Math.random() * 100 + '%';
         digit.style.top = Math.random() * 100 + '%';
-        digit.style.animationDelay = Math.random() * 5 + 's';
 
-        // Animation
         let opacity = 0;
         let direction = 1;
 
@@ -105,14 +102,11 @@ function createBinaryBackground() {
             opacity += 0.02 * direction;
             if (opacity >= 0.5) direction = -1;
             if (opacity <= 0) direction = 1;
-
             digit.style.opacity = opacity;
 
-            // Occasionally change the digit
             if (Math.random() < 0.02) {
                 digit.textContent = binaryChars.charAt(Math.floor(Math.random() * binaryChars.length));
             }
-
             requestAnimationFrame(animateDigit);
         }
 
@@ -121,10 +115,31 @@ function createBinaryBackground() {
     }
 }
 
-// Create particles for loading screen
+// Create particles for loading screen (fixed: single shared stylesheet)
 function createParticles() {
     const container = document.getElementById('particlesContainer');
+    if (!container) return;
+
     const particleCount = 80;
+    let keyframes = '';
+
+    for (let i = 0; i < particleCount; i++) {
+        const dx = Math.random() * 100 - 50;
+        const dy = Math.random() * 100 - 50;
+        keyframes += `
+            @keyframes particleFloat${i} {
+                0% { transform: translate(0, 0); opacity: 0; }
+                10% { opacity: 0.7; }
+                90% { opacity: 0.7; }
+                100% { transform: translate(${dx}px, ${dy}px); opacity: 0; }
+            }
+        `;
+    }
+
+    // Single style element for all particle animations
+    const style = document.createElement('style');
+    style.textContent = keyframes;
+    document.head.appendChild(style);
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -132,33 +147,9 @@ function createParticles() {
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
 
-        // Animation
         const duration = 2 + Math.random() * 3;
         const delay = Math.random() * 5;
-
-        particle.style.animation = `particleFloat ${duration}s infinite ${delay}s`;
-
-        // Add custom animation
-        const style = document.createElement('style');
-        style.textContent = `
-                    @keyframes particleFloat {
-                        0% {
-                            transform: translate(0, 0);
-                            opacity: 0;
-                        }
-                        10% {
-                            opacity: 0.7;
-                        }
-                        90% {
-                            opacity: 0.7;
-                        }
-                        100% {
-                            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-                            opacity: 0;
-                        }
-                    }
-                `;
-        document.head.appendChild(style);
+        particle.style.animation = `particleFloat${i} ${duration}s infinite ${delay}s`;
 
         container.appendChild(particle);
     }
@@ -167,7 +158,6 @@ function createParticles() {
 // Add flicker effect to letters
 function addFlickerEffect() {
     const letters = document.querySelectorAll('.letter');
-
     letters.forEach(letter => {
         setInterval(() => {
             if (Math.random() < 0.1) {
@@ -184,36 +174,36 @@ function addFlickerEffect() {
 function hideLoadingScreen() {
     setTimeout(() => {
         const loadingScreen = document.getElementById('loading-screen');
+        if (!loadingScreen) return;
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 500);
-    }, loadingscreen_duration); // Show for 3 seconds
+    }, loadingscreen_duration);
 }
 
-// Initialize loading animation
+// Single DOMContentLoaded handler
 document.addEventListener('DOMContentLoaded', () => {
+    // Loading screen animations
     createBinaryBackground();
     createParticles();
     addFlickerEffect();
     hideLoadingScreen();
-});
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function () {
+    // Main page animations
     createBinaryAnimation();
 
-    // Initialize all fade-in elements with paused animation
+    // Initialize fade-in elements
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(element => {
         element.style.animationPlayState = 'paused';
     });
 
-    // Add scroll event listener
+    // Scroll listener
     window.addEventListener('scroll', handleScrollAnimations);
-
-    // Trigger once on load in case elements are already in view
     handleScrollAnimations();
+    // Fallback: animate skills on load in case the section starts in view on small screens
+    animateSkillBars();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -229,39 +219,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Form submission
-    document.getElementById("contactForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        const name = e.target[0].value;
-        const email = e.target[1].value;
-        const subject = e.target[2].value;
-        const message = e.target[3].value;
+            const name = e.target[0].value;
+            const email = e.target[1].value;
+            const subject = e.target[2].value;
+            const message = e.target[3].value;
 
-        const loader = document.getElementById("loader");
-        const btn = document.getElementById("submitBtn");
+            const loader = document.getElementById('loader');
+            const btn = document.getElementById('submitBtn');
 
-        loader.style.display = "block";
-        btn.disabled = true;
+            if (loader) loader.style.display = 'block';
+            if (btn) btn.disabled = true;
 
-        try {
-            const res = await fetch("https://ochea-lean-portfolio-backend.onrender.com/send-email", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, subject, message }),
-            });
+            try {
+                const res = await fetch('https://ochea-lean-portfolio-backend.onrender.com/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, subject, message }),
+                });
 
-            const data = await res.json();
-            alert(data.message);
-        } catch (err) {
-            alert("Failed to send email. Please try again later.");
-            console.error(err);
-        } finally {
-            loader.style.display = "none";
-            btn.disabled = false;
-        }
+                const data = await res.json();
+                alert(data.message);
+            } catch (err) {
+                alert('Failed to send email. Please try again later.');
+                console.error(err);
+            } finally {
+                if (loader) loader.style.display = 'none';
+                if (btn) btn.disabled = false;
+            }
 
-        // reset the form
-        e.target.reset();
-    });
+            e.target.reset();
+        });
+    }
 });
